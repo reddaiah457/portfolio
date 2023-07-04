@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio.com</title>
+
+  <link rel="shortcut icon" href="./apple-touch-icon.png" type="image/x-icon">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <style>
+    /*****Banner*****/
+
+    .bannerBgImage {
+      margin-top: 10px;
+      height: 600px;
+      background: url("./banner.jpg");
+      background-size: cover;
+      position: relative;
+    }
+
+    .bannerText {
+      text-align: right;
+      position: absolute;
+      top: 40%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      color: white;
+
+    }
+
+    .btn {
+
+      background-color: chartreuse;
+    }
+
+    .btn-lg {
+      font-size: 1em;
+      border-radius: 0.25rem;
+      padding: 15px 48px;
+    }
+
+    .btn-bg {
+
+      color: #0B1C48;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+
+    .btn-bg:hover {
+      background-color: lightslategray;
+    }
+
+    span.btn-bg {
+      margin: 0;
+    }
+
+
+
+
+    /******Skills******/
+
+    .progress-container {
+      position: relative;
+      margin-bottom: 30px;
+      font-size: 17px;
+    }
+
+    .progress-badge {
+      font-weight: bold;
+      color: rgb(50, 44, 166);
+      font-size: 0.8571em;
+      text-transform: uppercase;
+    }
+
+    .progress {
+      height: 1px;
+      border-radius: 0;
+      box-shadow: none;
+      background: rgba(222, 222, 222, 0.8);
+      margin-top: 14px;
+      height: 5px;
+      font-size: 17px;
+    }
+
+    .progress-bar {
+      box-shadow: none;
+      background-color: chartreuse;
+      height: 5px;
+      transform: scaleX(0);
+      transition: transform 2s ease-in-out;
+      transform-origin: 0% 0%;
+      line-height: 1rem;
+      color: #fff;
+    }
+
+    .progress-value {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      font-weight: bold;
+      color: rgb(50, 44, 166);
+      font-size: 0.8571em;
+    }
+
+    .aos-animate {
+      transform: scaleX(1);
+    }
+
+
+
+
+    /******Education******/
+
+    #btech {
+      background-size: cover;
+      font-weight: 900;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./jntuacea.jpg);
+    }
+
+    #inter {
+      background-size: cover;
+      font-weight: 900;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./srichaitanya.jpeg);
+    }
+
+    #bhashyam {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./bhashyam.jpg);
+    }
+
+    /* .card-fold {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-fold .card {
+      margin: 1rem;
+    }
+
+    If this activated then cards are not responsive and for responsive @media query is added below.*/
+
+    .card {
+      border: 0;
+      border-radius: 0.2rem;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 20px;
+      box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+      min-height: 230px;
+    }
+
+    /**768px**/
+
+    @media (min-width: 768px) {
+
+      .container> {
+        display: grid;
+        grid-template: auto / 30fr 70fr;
+        grid-template-areas: "side main";
+        gap: 15%;
+      }
+    }
+
+    /**991px**/
+
+    @media screen and (min-width:991px) {
+
+      .card-fold {
+        display: flex;
+      }
+
+      .card-fold .card {
+        margin: 1rem;
+      }
+    }
+
+
+
+
+    /******Portfolio******/
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .zoom {
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .zoom:hover {
+      transform: scale(1.2);
+    }
+
+    .zoom::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 30px;
+      font-weight: lighter;
+      opacity: 0;
+      transition: opacity 0.3s;
+      position: absolute;
+    }
+
+    .zoom:hover::after {
+      opacity: 1;
+    }
+
+    .zoom::after {
+      white-space: pre-wrap;
+      content: attr(data-text) !important;
+    }
+
+    @media (max-width: 768px) {
+
+      .zoom {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .banner {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .image-container {
+      position: relative;
+    }
+
+    .hover-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ffff;
+      padding: 10px;
+      display: none;
+    }
+
+    .zoom:hover .hover-text {
+      display: block;
+    }
+
+    .hover-text {
+      font-weight: lighter;
+    }
+
+    .zoom {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .zoom img {
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .zoom:hover img {
+      opacity: 0.7;
+    }
+
+
+
+
+    /******Contact*****/
+
+    .form-control:-moz-placeholder {
+      color: #DDDDDD;
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+
+    .form-control::-webkit-input-placeholder {
+      color: #cfc5c5;
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+
+    .form-control:-ms-input-placeholder {
+      color: #DDDDDD;
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+
+    .form-control {
+      background-color: transparent;
+      border: 1px solid #E3E3E3;
+      border-radius: 30px;
+      color: #2c2c2c;
+      line-height: normal;
+      font-size: 0.8571em;
+      transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      box-shadow: none;
+    }
+
+    .form-control:focus {
+      border: 1px solid #378C3F;
+      box-shadow: none;
+      outline: 0 !important;
+      color: #2c2c2c;
+    }
+
+    .form-group .input-group-addon,
+    .input-group .input-group-addon {
+      padding: 10px 10px 10px 15px;
+    }
+
+    .input-group-addon {
+      background-color: chartreuse;
+      border: 1px solid #E3E3E3;
+      border-radius: 30px;
+      color: black;
+      padding: -0.5rem 0 -0.5rem -0.3rem;
+      transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    .input-group-addon+.form-control,
+    .input-group-addon~.form-control {
+      padding: -0.5rem 0.7rem;
+      padding-left: 18px;
+    }
+
+    .input-group-addon i {
+      width: 17px;
+    }
+
+    .input-group-focus .input-group-addon {
+      background-color: #FFFFFF;
+      border-color: #378C3F;
+    }
+
+    .input-group,
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    textarea.form-control {
+      max-width: 100%;
+      padding: 10px 10px 0 0;
+      resize: none;
+      border: none;
+      border-bottom: 1px solid #E3E3E3;
+      border-radius: 0;
+      line-height: 2;
+    }
+
+    textarea.form-control:focus,
+    textarea.form-control:active {
+      border-left: none;
+      border-top: none;
+      border-right: none;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group.has-error,
+    .form-group.has-danger {
+      margin-bottom: 20px;
+    }
+
+
+
+
+    /******Footer******/
+
+    .footer {
+      padding: 24px 0;
+    }
+
+    .linkedin:hover i {
+      color: #0077b5;
+    }
+
+    .github:hover i {
+      color: #111;
+    }
+
+    .twitter:hover i {
+
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #1da1f2;
+      color: #fff;
+      transition: background-color 0.3s;
+
+
+    }
+
+    .telegram:hover i {
+      color: #0088cc;
+    }
+
+    .btn-link {
+      border: 0;
+      padding: 0.5rem 0.7rem;
+      background-color: transparent;
+    }
+
+
+
+
+    /******back to top button******/
+
+    #back-to-top-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 26px;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+      border-radius: 20%;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-in-out;
+      transition-property: background-color, color;
+    }
+
+    #back-to-top-btn i {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0dff00;
+    }
+
+    .btn-Entrance {
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+      animation-name: btnEntrance;
+    }
+
+    @keyframes btnEntrance {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .btn-Exit {
+      animation-duration: 0.25s;
+      animation-fill-mode: both;
+      animation-name: btnExit;
+    }
+  </style>
+
+
+</head>
+
+<!----Back to top button---->
+
+<body id="top">
+  <a id="back-to-top-btn" class="btnEntrance" style="display: block;">
+    <i class="fa fa-arrow-up"></i>
+  </a>
+
+  <!-------->
+
+
+  <!----Navbar Start---->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand  animate__animated  animate__pulse animate__infinite infinte	" href="/"> <img
+          src="./favicon-R-32x32.png"> Reddaiah Rachagorla</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!----Navbar End---->
+
+  <br>
+  <!----Pic Start---->
+
+  <section class="bannerBgImage" id="home">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 bannerText">
+          <h2 class=" animate__animated animate__backInLeft " style="font-size: 3rem;">Hello!</h2>
+          <p style="font-size: 2rem;">It's me Reddaiah...</p>
+
+          <a class="btn btn-bg aos-init aos-animate" href="./Resume.pdf" target="_blank" data-aos="zoom-in"
+            data-aos-anchor="data-aos-anchor">Download Resume</a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!----Pic End---->
+
+  <br><br>
+  <!----About Start---->
+
+  <div id="about" class="mb-5"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="card text mb-3" style=" margin: 0 auto; max-width: 1100px; ">
+        <div class="card-header">
+          <h2 style="color: rgb(50, 44, 166);"> About</h2>
+
+          <p>Hello! I am <strong>Reddaiah Rachagorla</strong> and i am a student.</p>
+          <p>I am from Proddatur, Kadapa District. I am currently pursuing Bachelor of Technology in
+            <strong> Electronics and Communication Engineering </strong></strong>at JNTUA College of Engineering,
+            Anantapur
+            (2020-2024).
+          </p>
+          <p> I like to enhance my skills and I am always seeking opportunities to expand my knowledge and skills.</p>
+
+        </div>
+        <div class="card-body">
+          <div class="row g-0">
+            <div class="col-md-3"><br>
+              <img src="./reddaiah.jpg" class="img-fluid rounded-start" alt="Profile Pic"><br>
+            </div>
+            <div class="col-md-9">
+              <div class="card-body">
+                <section class="card-text">
+                  <div class="col-lg-8 col-md-12">
+                    <div class="card-body">
+                      <div class="h2" style="color: rgb(50, 44, 166);">Basic Information</div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">Name:</strong>
+                        </div>
+                        <div class="col-sm-8">Rachagorla Reddaiah</div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">Age:</strong>
+                        </div>
+                        <div class="col-sm-8">21</div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">Email:</strong>
+                        </div>
+                        <div class="col-sm-8">reddaiah9052@gmail.com</div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">Phone:</strong>
+                        </div>
+                        <div class="col-sm-8">+91 00000-00000</div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">Address:</strong>
+                        </div>
+                        <div class="col-sm-8">D.No:2/61, Korrapdu, Rajupalem, Kadapa, Andhra Pradesh, PIN:516359.</div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">College:</strong>
+                        </div>
+                        <div class="col-sm-8">JNTUA College of Engineering, Anantapur.</div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-sm-4">
+                          <strong class="text-uppercase bold-text" style="color: #16aa4f;">Branch:</strong>
+                        </div>
+                        <div class="col-sm-8">Electronics and Communication Engineering.</div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!----About End---->
+
+  <br><br>
+  <!----Skills Start---->
+
+  <div id="skills" class="mb-5"></div>
+  <div class="container">
+    <div style="text-align: center ; color:rgb(50, 44, 166);"> <strong>
+        <h2> Skills</h2>
+      </strong> </div><br><br>
+    <div class="card aos-init aos-animate" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      <div class="card-body title">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container">
+              <span class="progress-badge">HTML</span>
+              <div class="progress">
+                <div class="progress-bar aos-init aos-animate" data-aos="progress-full" data-aos-offset="10"
+                  data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 80%"></div>
+                <span class="progress-value">80%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container">
+              <span class="progress-badge">CSS</span>
+              <div class="progress">
+                <div class="progress-bar aos-init aos-animate" data-aos="progress-full" data-aos-offset="10"
+                  data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 60%"></div>
+                <span class="progress-value">60%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container">
+              <span class="progress-badge">JavaScript</span>
+              <div class="progress">
+                <div class="progress-bar aos-init aos-animate" data-aos="progress-full" data-aos-offset="10"
+                  data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 30%"></div>
+                <span class="progress-value">30%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container">
+              <span class="progress-badge">Java</span>
+              <div class="progress">
+                <div class="progress-bar aos-init aos-animate " data-aos="progress-full" data-aos-offset="10"
+                  data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 60%"></div>
+                <span class="progress-value">60%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container">
+              <span class="progress-badge">C</span>
+              <div class="progress">
+                <div class="progress-bar aos-init aos-animate" data-aos="progress-full" data-aos-offset="10"
+                  data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 80%"></div>
+                <span class="progress-value">80%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container">
+              <span class="progress-badge">Python</span>
+              <div class="progress">
+                <div class="progress-bar aos-init aos-animate" data-aos="progress-full" data-aos-offset="10"
+                  data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 40%"></div>
+                <span class="progress-value">40%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Skills End-->
+
+  <br>
+  <!----Education Start---->
+
+  <div id="education" class="mb-5"></div>
+  <div class="container">
+    <div style="color: rgb(50, 44, 166);" class="h2 text-center mb-4 ">Education</div>
+    <div class="card-fold">
+      <div class="card">
+        <div class="row">
+          <div id="btech" class="col-md-3 col-lg-12 bg-primary aos-init">
+            <div class="card-body">
+              <div style="color: white; text-align: center; padding-top: 60px;" class="h5">BTECH</div>
+            </div>
+          </div>
+          <div class="col-md-9 col-lg-12 aos-init">
+            <div class="card-body">
+              <div class="h5 bold-text">
+                BTECH in Electronics and Communication Engineering
+              </div>
+              <p style="font-weight: lighter;">JNTUA Collegeof Engineering, Anantapur (2021-2024). </p>
+              <p>
+                Established with the aim of providing quality education and nurturing future engineers, JNTUACEA has
+                been at the forefront of engineering education since its inception. The college offers undergraduate
+                and postgraduate programs in various disciplines of engineering, providing a comprehensive and
+                industry-oriented curriculum.
+              </p>
+              <p>
+                As a testament to its commitment to excellence, JNTUACEA has produced numerous successful engineers
+                who have made significant contributions to various industries and organizations worldwide. The college
+                has a strong network of alumni who serve as mentors, guiding and inspiring the current students to
+                achieve their goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div id="inter" class="col-md-3 col-lg-12 bg-primary aos-init">
+            <div class="card-body">
+              <div style="color: white;  text-align: center; padding-top: 60px;" class="h5">Intermediate</div>
+            </div>
+          </div>
+          <div class="col-md-9 col-lg-12 aos-init">
+            <div class="card-body">
+              <div class="h5 bold-text">
+                Intermediate in MPC
+              </div>
+              <p style="font-weight: lighter;">Sri Chaitanya Junior College, Tirupati (2018-2020).</p>
+              <p>
+                Sri Chaitanya Junior College, located in Tirupati, Andhra Pradesh, is a renowned educational
+                institution dedicated to nurturing young minds and preparing them for a successful academic journey.
+                With a strong emphasis on academic excellence, the college has been instrumental in shaping the future
+                of countless students.
+              </p>
+              <p>
+                Sri Chaitanya Junior College is known for its rigorous curriculum and holistic approach to education.
+                The college offers intermediate education, focusing on both science and commerce streams. The
+                experienced and highly qualified faculty members at the college provide comprehensive guidance,
+                enabling students to excel in their chosen fields.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-fold">
+      <div class="card">
+        <div class="row">
+          <div id="bhashyam" class="col-md-3 col-lg-12 bg-primary aos-init">
+            <div class="card-body">
+              <div style="color: white;  text-align: center; padding-top: 60px;" class="h5">High School</div>
+              <p style="color: white;  text-align: center;">10th class</p>
+            </div>
+          </div>
+          <div class="col-md-9 col-lg-12 aos-init">
+            <div class="card-body">
+              <div class="h5 bold-text"></div>
+              <p style="font-weight: lighter;">Bhashyam High School, Proddatur (2017-2018).</p>
+              <p>
+                Bhashyam High School, located in Proddatur, Andhra Pradesh, is a distinguished educational institution
+                renowned for its commitment to academic excellence and holistic development. With a rich history of
+                providing quality education, the school has been shaping the lives of students and preparing them for
+                a bright future.
+              </p>
+              <p>
+                Bhashyam High School offers a comprehensive educational program, encompassing primary and secondary
+                education. The school's curriculum is designed to foster intellectual growth, critical thinking, and a
+                lifelong love for learning. With a team of dedicated and highly qualified teachers, the school ensures
+                that students receive personalized attention and guidance throughout their academic journey.
+              </p>
+              <p>
+                The school firmly believes in the holistic development of students. Alongside academic education,
+                Bhashyam High School provides ample opportunities for students to explore and nurture their talents in
+                extracurricular activities. The school encourages participation in sports, cultural events, debates,
+                and various clubs, enabling students to develop their skills, confidence, and leadership qualities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!----Education End---->
+
+  <br>
+  <!----Portfolio Start---->
+
+  <div id="portfolio" class="mb-5"></div>
+  <div class="container">
+    <div style="  margin: 0px;  padding-left: 5px; ">
+      <div style="text-align: center ; color:rgb(50, 44, 166);"> <strong>
+          <h2> Portfolio</h2>
+        </strong> </div><br><br>
+      <div class="image-container">
+        <div class="zoom">
+          <a href="#portfolio" target="_blank">
+            <img src="./port-cover.png" alt="pic" style="margin-left:3em; border: 1px solid rgba(0,0,0,0.2);" width="100%"
+              height="300">
+          </a>
+          <div class="hover-text">
+            <p style="font-size: 20px;"><strong> Portfolio Website</strong></p>
+          </div>
+        </div>
+        <div class="zoom" data-text="Upcoming Project">
+          <img src="./upcoming.jpg" alt="pic" style="margin-left:3em;  border: 1px solid rgba(0,0,0,0.2);" width="100%"
+            height="300">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!----Portfolio End---->
+
+  <br><br>
+  <!--Contact Start---->
+
+  <div id="contact" class="mb-5"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div class="card mb-0 aos-init aos-animate" data-aos="zoom-in">
+          <div class="h2 text-center" style="color:rgb(50, 44, 166);">Connect With Me!</div><br><br>
+          <div class="row">
+            <div class="col-12 col-lg-6"><iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54032.550994180674!2d78.589731086162
+                    29!3d14.797843225541303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb47eba271b3397%3A0x6c
+                    ba6d5766a95b04!2sKorrapadu%2C%20Andhra%20Pradesh%20516359!5e1!3m2!1sen!2sin!4v1688016077087!5m2!1sen!2sin" width="100%" height="450"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe></div><br><br><br>
+            <div class="col-12 col-lg-6">
+              <form action="https://formsubmit.co/reddaiah9052@gmail.com" method="POST">
+                <div class="p pb-3">
+                  <strong class="bold-text" style="color:rgb(21, 227, 76) ;">Feel free to contact me
+                  </strong>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <div class="input-group">
+                      <span class="input-group-addon btn-bg"><i class="fa fa-user-circle"></i></span>
+                      <input class="form-control" type="text" name="name" placeholder="Name" required="required">
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <div class="input-group">
+                      <span class="input-group-addon btn-bg"><i class="fa fa-file-text"></i></span>
+                      <input class="form-control" type="text" name="Subject" placeholder="Subject" required="required">
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <div class="input-group">
+                      <span class="input-group-addon btn-bg"><i class="fa fa-envelope"></i></span>
+                      <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required">
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col">
+                    <div class="form-group">
+                      <textarea class="form-control" name="message" placeholder="Your Message"
+                        required="required"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-bg bold-text btn-lg" type="submit">
+                      Send
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+  <!--Contact End---->
+
+
+  <!----Footer Start---->
+
+  <footer class="footer">
+    <div class="container text-center">
+      <a style="color: gray;" class="linkedin  btn-link" href="https://www.linkedin.com/in/reddaiah-rachagorla"
+        target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+
+      <a style="color: gray;" class="github  btn-link" href="https://github.com/reddaiah457" target="_blank"><i
+          class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+
+      <a style="color: gray;" class="twitter  btn-link" href="https://twitter.com/Reddaiah457" target="_blank">
+        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i> </a>
+
+      <a style="color: gray;" class="telegram  btn-link" href="https://t.me/reddaiah_rachagorla" target="_blank"><i
+          class="fa fa-telegram fa-2x" aria-hidden="true"></i></a>
+
+    </div>
+    <div class="text-center text-muted">
+      <p>©All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!----Footer End---->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+
+  <!----Back to top---->
+  <script>
+
+    const backToTopButton = document.querySelector("#back-to-top-btn");
+    window.addEventListener("scroll", scrollFunction);
+    function scrollFunction() {
+      if (window.pageYOffset > 300) {
+        if (!backToTopButton.classList.contains("btnEntrance")) {
+          backToTopButton.classList.remove("btnExit");
+          backToTopButton.classList.add("btnEntrance");
+          backToTopButton.style.display = "block";
+        }
+      } else {
+        if (backToTopButton.classList.contains("btnEntrance")) {
+          backToTopButton.classList.remove("btnEntrance");
+          backToTopButton.classList.add("btnExit");
+          setTimeout(function () {
+            backToTopButton.style.display = "none";
+          }, 250);
+        }
+      }
+    }
+
+    backToTopButton.addEventListener("click", smoothScrollBackToTop);
+
+    function smoothScrollBackToTop() {
+      const targetPosition = 0;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 750;
+      let start = null;
+
+      window.requestAnimationFrame(step);
+
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        window.scrollTo(
+          0,
+          easeInOutCubic(progress, startPosition, distance, duration)
+        );
+        if (progress < duration) window.requestAnimationFrame(step);
+      }
+    }
+
+    function easeInOutCubic(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t * t + b;
+      t -= 2;
+      return (c / 2) * (t * t * t + 2) + b;
+    }
+
+    const slides = document.querySelectorAll(".slide");
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+      if (currentIndex == slides.length - 1) {
+        currentIndex = 0;
+        document.querySelector(".active").classList.remove("active");
+        slides[currentIndex].classList.add("active");
+        return;
+      }
+
+      if (currentIndex < slides.length) {
+        document.querySelector(".active").classList.remove("active");
+        currentIndex++;
+        slides[currentIndex].classList.add("active");
+      }
+    }, 5000);
+
+  </script>
+
+
+</body>
+
+</html>
